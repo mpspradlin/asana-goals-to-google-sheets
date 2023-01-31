@@ -124,7 +124,7 @@ const getStatusUpdate = (status_gid) =>
 
 const main = () => {
   // https://developers.asana.com/docs/get-goals
-  // var goal_metric_updates = allGoalsToUpdate();
+  var goal_metric_updates = allGoalsToUpdate();
   var goal_data = [];
   var offset = 0;
   var limit = 100;

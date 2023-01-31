@@ -2,7 +2,7 @@
 
 const API_TOKEN = "API TOKEN" // Add your API Token
 const BASE_URL = "https://app.asana.com/api/1.0/"
-const SENSE_ORG_ID = "ORG ID" // Add your API Token
+const SENSE_ORG_ID = "ORG ID" // Add your Asana Org or Workspace Id.
 const GOALS = "goals"
 const STATUS = "status_updates"
 const ORG_LEVEL = "?workspace="
@@ -36,9 +36,7 @@ const POST_HTTP_HEADER = {
   };
 
 const doGet = (endpoint) => {
-  Logger.log(endpoint)
   var dataResponse = UrlFetchApp.fetch(endpoint, GET_HTTP_HEADER).getContentText();
-  // Logger.log(dataResponse)
   return JSON.parse(dataResponse);
 }
 
@@ -85,7 +83,6 @@ const allGoalsToUpdate = () => {
    var sheet = SpreadsheetApp.getActive().getSheetByName('Update Metrics');
    var namedRanges = sheet.getNamedRanges();
    var goalNameArray = []; // array to store the name of each named range 
-
    for (var i = 0; i < namedRanges.length; i++) {
     goalNameArray[i] = [];
     goalNameArray[i].push(namedRanges[i].getName());    
@@ -131,7 +128,6 @@ const main = () => {
   var hasMore = true;
 
   while (hasMore) {
-    Logger.log(offset)
     if (offset != 0) {
         Logger.log(offset)
         var result = doGet(BASE_URL + GOALS + ORG_LEVEL + SENSE_ORG_ID + "&offset=" + offset + "&limit=" + limit);

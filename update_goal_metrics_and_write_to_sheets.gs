@@ -2,7 +2,7 @@
 
 const API_TOKEN = "API TOKEN" // Add your API Token
 const BASE_URL = "https://app.asana.com/api/1.0/"
-const SENSE_ORG_ID = "ORG ID" // Add your Asana Org or Workspace Id.
+const ORG_ID = "ORG ID" // Add your Asana Org or Workspace Id.
 const GOALS = "goals"
 const STATUS = "status_updates"
 const ORG_LEVEL = "?workspace="
@@ -130,10 +130,10 @@ const main = () => {
   while (hasMore) {
     if (offset != 0) {
         Logger.log(offset)
-        var result = doGet(BASE_URL + GOALS + ORG_LEVEL + SENSE_ORG_ID + "&offset=" + offset + "&limit=" + limit);
+        var result = doGet(BASE_URL + GOALS + ORG_LEVEL + ORG_ID + "&offset=" + offset + "&limit=" + limit);
         var goals = result["data"];
     } else {
-        var result = doGet(BASE_URL + GOALS + ORG_LEVEL + SENSE_ORG_ID + "&limit=" + limit);
+        var result = doGet(BASE_URL + GOALS + ORG_LEVEL + ORG_ID + "&limit=" + limit);
         var goals = result["data"];
     }; 
     

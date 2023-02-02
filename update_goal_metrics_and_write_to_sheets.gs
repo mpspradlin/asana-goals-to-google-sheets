@@ -196,7 +196,6 @@ const main = () => {
       // check for more pages to retrieve
     if (result["next_page"] != null) {
         var offset = result["next_page"]["offset"];
-        Logger.log("HERE HERE");
       } else {
           hasMore = false;
       }

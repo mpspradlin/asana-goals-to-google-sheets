@@ -19,4 +19,4 @@ const set_goal_metric = () => {
     var goal_metric_endpoint = BASE_URL + GOALS + "/" + metric["gid"] + "/setMetric";
     var result = doPost(goal_metric_endpoint, header); 
   })
-};set
+};
